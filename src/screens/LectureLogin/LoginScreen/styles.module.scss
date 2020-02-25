@@ -1,0 +1,51 @@
+.Wrapper {
+  width: 450px;
+  border-radius: 8px;
+  padding: 3px;
+  overflow: hidden;
+  background-color: #fff;
+  border: 1px solid #c1c1c1;
+  box-shadow: 0 3px 8px rgba(#000, 0.3);
+  .Title {
+    width: 100%;
+    padding: 45px 0;
+    border-radius: 5px;
+    background-color: #eee;
+    text-align: center;
+    > h2 {
+      font-size: 1.75rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    > span {
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+  }
+  .FormWrapper {
+    position: relative;
+    padding: 40px 25px;
+    .FabProgress {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .TextField {
+      margin-bottom: 6px;
+      &:nth-child(2) {
+        margin-bottom: 26px;
+      }
+    }
+    .Submit {
+      color: #fff;
+      border-radius: 20px;
+      background-color: #000;
+      border: 2px solid #000;
+      &:hover {
+        color: #fff;
+        background-color: #000;
+      }
+    }
+  }
+}
