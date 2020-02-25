@@ -15,13 +15,13 @@ import InputPassword from "../../../shared/InputPassword";
 import FabProgress from "../../../shared/FabProgress";
 
 // import logo fethub
-import FetHubLogo from "../../../_core/assets/img/fethub_logo.png";
+import FetHubLogo from "../../../assets/img/fethub_logo.png";
 
 // import action
 import { resetPassword } from "../../../redux/accounts/accountAction";
 
 // import service
-import { sendAccessToken, getLocalStorage } from "../../../_core/services/common";
+import { sendAccessToken, getLocalStorage } from "../../../services/common";
 
 // import const
 import { FETCH_TOKEN_RESET_PASSWORD } from "../../../redux/otp/otpConst";

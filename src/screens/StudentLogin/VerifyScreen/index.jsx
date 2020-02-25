@@ -29,7 +29,7 @@ import { FETCH_IS_SEND } from "../../../redux/otp/otpConst";
 import Timer from "../../../shared/Timer";
 
 // import logo fethub
-import FetHubLogo from "../../../_core/assets/img/fethub_logo.png";
+import FetHubLogo from "../../../assets/img/fethub_logo.png";
 import FabProgress from "../../../shared/FabProgress";
 
 const VerifyScreen = props => {

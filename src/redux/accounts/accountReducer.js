@@ -2,7 +2,7 @@
 import { FETCH_LOGIN, FETCH_ACCOUNT_ID } from "./accountConst";
 
 // import services
-import { getLocalStorage } from "../../_core/services/common";
+import { getLocalStorage } from "../../services/common";
 
 let initialState = {
   accountLogin: null,

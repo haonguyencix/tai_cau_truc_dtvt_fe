@@ -4,10 +4,10 @@ import styles from "./styles.module.scss";
 // import material UI
 import { Avatar } from "@material-ui/core";
 
-import LectureAvt from "../../../../_core/assets/img/avt-default-2.png";
+import LectureAvt from "../../../../assets/img/avt-default-2.png";
 
 // import services
-import { stringShortcut, getFirstLetter } from "../../../../_core/services/common";
+import { stringShortcut, getFirstLetter } from "../../../../services/common";
 
 // import Material UI
 import { WatchLater, Room, VpnKey, GroupWork } from "@material-ui/icons";

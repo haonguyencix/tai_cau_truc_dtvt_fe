@@ -33,7 +33,7 @@ import Timer from "../../../shared/Timer";
 import FabProgress from "../../../shared/FabProgress";
 
 // import logo fethub
-import FetHubLogo from "../../../_core/assets/img/fethub_logo.png";
+import FetHubLogo from "../../../assets/img/fethub_logo.png";
 
 const ForgotPassScreen = props => {
   const dispatch = useDispatch();

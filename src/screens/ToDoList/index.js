@@ -1,4 +1,4 @@
-import { authGuardWithWrapper } from "../../_core/auth/guard";
+import { authGuardWithWrapper } from "../../auth/guard";
 
 // layout
 import TasksLayout from "../../layouts/ToDoList";

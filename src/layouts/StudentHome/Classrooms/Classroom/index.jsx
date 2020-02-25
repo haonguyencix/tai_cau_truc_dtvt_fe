@@ -2,13 +2,13 @@ import React, { useState, useRef } from "react";
 import styles from "./styles.module.scss";
 
 // import images
-import LectureAvt from "../../../../_core/assets/img/avt-hao.png";
+import LectureAvt from "../../../../assets/img/avt-hao.png";
 
 // import material UI
 import { Avatar, Tooltip } from "@material-ui/core";
 
 // import services
-import { stringShortcut, getFirstLetter } from "../../../../_core/services/common";
+import { stringShortcut, getFirstLetter } from "../../../../services/common";
 import ClassroomHover from "../ClassroomHover";
 
 const Classroom = props => {

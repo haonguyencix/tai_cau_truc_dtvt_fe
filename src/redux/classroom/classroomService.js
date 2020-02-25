@@ -1,4 +1,4 @@
-import { restConnector } from "../../_core/connector/axios";
+import { restConnector } from "../connector/axios";
 
 class ClassroomService {
   studentSignUp(student) {

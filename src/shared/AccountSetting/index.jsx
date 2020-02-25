@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import AvtDefaut from "../../_core/assets/img/avt-default-2.png";
+import AvtDefaut from "../../assets/img/avt-default-2.png";
 
 // import libraries
 import { Link } from "react-router-dom";
@@ -16,7 +16,7 @@ import { ExitToApp, PersonOutline } from "@material-ui/icons";
 import { FETCH_LOGIN } from "../../redux/accounts/accountConst";
 
 // import services
-import { stringShortcut } from "../../_core/services/common";
+import { stringShortcut } from "../../services/common";
 
 const AccountSetting = props => {
   const history = useHistory();

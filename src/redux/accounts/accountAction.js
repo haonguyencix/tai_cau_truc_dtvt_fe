@@ -7,7 +7,7 @@ import { FETCH_LOADING } from "../../shared/FabProgress/const";
 
 // import services
 import AccountService from "./accountService";
-import { setLocalStorage } from "../../_core/services/common";
+import { setLocalStorage } from "../../services/common";
 
 // import models
 import { StudentAccount, LectureAccount, NewPassword } from "./account";

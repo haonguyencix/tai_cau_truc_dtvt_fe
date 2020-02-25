@@ -13,7 +13,7 @@ import { FETCH_LOADING } from "../../shared/FabProgress/const";
 
 // import services
 import OTPService from "./otpService";
-import { setLocalStorage } from "../../_core/services/common";
+import { setLocalStorage } from "../../services/common";
 
 // import models
 import { OTP, Credentials } from "./otp";

@@ -9,7 +9,7 @@ import { Avatar, Tooltip } from "@material-ui/core";
 import { Home, Face, Flag } from "@material-ui/icons";
 
 // import services
-import { stringShortcut, getFirstLetter } from "../../../_core/services/common";
+import { stringShortcut, getFirstLetter } from "../../../services/common";
 
 const menuArr = [
   { name: "Bảng tin", slug: "/home", icon: Home },

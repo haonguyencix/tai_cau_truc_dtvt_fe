@@ -6,7 +6,7 @@ import { FETCH_STUDENT_SIGN_IN, FETCH_STUDENT_SIGN_UP } from "./classConst";
 
 // import services
 import AccountService from "./classroomService";
-import { setLocalStorage, sendAccessToken } from "../../services/common";
+import { setLocalStorage, sendAccessToken } from "../../../services/common";
 
 // import models
 import { StudentAccount } from "./account";

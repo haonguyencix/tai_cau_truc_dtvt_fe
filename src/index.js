@@ -2,19 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // Styles
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from "@material-ui/core/CssBaseline";
 import "./main.scss";
 
 // Toastify
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 // Routes
-import { BrowserRouter as Router } from 'react-router-dom';
-import ROUTES, { RenderRoutes } from "./_core/routes";
+import { BrowserRouter as Router } from "react-router-dom";
+import ROUTES, { RenderRoutes } from "./screens/routes";
 
 // Service Worker
-import * as serviceWorker from "./_core/services/worker";
+import * as serviceWorker from "./services/worker";
 
 // Setup Redux
 import { createStore, applyMiddleware, compose } from "redux";
@@ -37,7 +37,7 @@ const store = createStore(rootReducer, enhancer);
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-    <CssBaseline />
+      <CssBaseline />
       <RenderRoutes routes={ROUTES} />
       <ToastContainer />
     </Router>
