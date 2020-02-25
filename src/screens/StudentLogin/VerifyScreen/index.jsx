@@ -20,17 +20,17 @@ import {
 import { MailOutline, Send } from "@material-ui/icons";
 
 // import action
-import { sendOTP, verifyOTP } from "../../../components/otp/otpAction";
+import { sendOTP, verifyOTP } from "../../../redux/otp/otpAction";
 
 // import const
-import { FETCH_IS_SEND } from "../../../components/otp/otpConst";
+import { FETCH_IS_SEND } from "../../../redux/otp/otpConst";
 
 // import components
-import Timer from "../../_common/Timer";
+import Timer from "../../../shared/Timer";
 
 // import logo fethub
-import FetHubLogo from "../../../assets/img/fethub_logo.png";
-import FabProgress from "../../_common/FabProgress";
+import FetHubLogo from "../../../_core/assets/img/fethub_logo.png";
+import FabProgress from "../../../shared/FabProgress";
 
 const VerifyScreen = props => {
   const dispatch = useDispatch();

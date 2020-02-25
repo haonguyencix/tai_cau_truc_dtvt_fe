@@ -1,5 +1,9 @@
-import { authGuardWithWrapper } from "../../auth/guard";
-import StudentHome from "./index";
+import { authGuardWithWrapper } from "../../_core/auth/guard";
+
+// layout
+import StudentHome from "../../layouts/StudentHome";
+
+// screens
 import HomeScreen from "./HomeScreen";
 
 const StudentHomeRoutes = [

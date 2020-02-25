@@ -11,20 +11,20 @@ import { Button, Typography } from "@material-ui/core";
 import { Autorenew } from "@material-ui/icons";
 
 // import component
-import InputPassword from "../../_common/InputPassword";
-import FabProgress from "../../_common/FabProgress";
+import InputPassword from "../../../shared/InputPassword";
+import FabProgress from "../../../shared/FabProgress";
 
 // import logo fethub
-import FetHubLogo from "../../../assets/img/fethub_logo.png";
+import FetHubLogo from "../../../_core/assets/img/fethub_logo.png";
 
 // import action
-import { resetPassword } from "../../../components/accounts/accountAction";
+import { resetPassword } from "../../../redux/accounts/accountAction";
 
 // import service
-import { sendAccessToken, getLocalStorage } from "../../../services/common";
+import { sendAccessToken, getLocalStorage } from "../../../_core/services/common";
 
 // import const
-import { FETCH_TOKEN_RESET_PASSWORD } from "../../../components/otp/otpConst";
+import { FETCH_TOKEN_RESET_PASSWORD } from "../../../redux/otp/otpConst";
 
 const ResetPassScreen = () => {
   const history = useHistory();

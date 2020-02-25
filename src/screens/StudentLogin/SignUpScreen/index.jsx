@@ -15,12 +15,12 @@ import {
 } from "@material-ui/pickers";
 
 // import action and schema
-import { signUp } from "../../../components/accounts/accountAction";
-import { AccountSchema } from "../../../components/accounts/account";
+import { signUp } from "../../../redux/accounts/accountAction";
+import { AccountSchema } from "../../../redux/accounts/account";
 
 // import components
-import InputPassword from "../../_common/InputPassword";
-import FabProgress from "../../_common/FabProgress";
+import InputPassword from "../../../shared/InputPassword";
+import FabProgress from "../../../shared/FabProgress";
 
 const SignUpScreen = props => {
   const dispatch = useDispatch();

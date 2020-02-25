@@ -4,15 +4,13 @@ import styles from "./styles.module.scss";
 // import libraries
 import { Formik, Form } from "formik";
 import { useDispatch } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 // import Material UI
-import { TextField, Button } from "@material-ui/core";
-import { PersonAdd } from "@material-ui/icons";
+import { TextField, Button, Typography } from "@material-ui/core";
 
 // import components
 import InputPassword from "../../../shared/InputPassword";
-import FabProgress from "../../../shared/FabProgress";
 
 // import action
 import { login } from "../../../redux/accounts/accountAction";
@@ -22,33 +20,25 @@ const Login = () => {
   const history = useHistory();
 
   return (
-    <div className={styles.Wrapper}>
-      <div className={styles.Title}>
-        <h2>Đăng nhập FEThub</h2>
-        <span>(Giảng viên)</span>
-      </div>
-      <div className={styles.FormWrapper}>
-        <FabProgress
-          className={styles.FabProgress}
-          slug="/"
-          icon={PersonAdd}
-          title="Trở về trang chủ"
-        />
+    <>
+      <div className={styles.Container}>
+        <Typography variant="h4" component="h4" className={styles.Typography}>
+          Đăng nhập
+        </Typography>
         <Formik
           initialValues={{
             id: "",
             password: ""
           }}
           onSubmit={values => {
-            console.log("TCL: Login -> values", values);
-            dispatch(login(values, history.push, true));
+            dispatch(login(values, history.push, false));
           }}
         >
           {({ handleChange }) => {
             return (
               <Form className={styles.Form}>
                 <TextField
-                  label="Mã số giảng viên"
+                  label="Mã số sinh viên"
                   variant="outlined"
                   type="text"
                   name="id"
@@ -56,23 +46,18 @@ const Login = () => {
                   autoComplete="username"
                   margin="normal"
                   className={styles.TextField}
-                  helperText={
-                    <Link to="/lecture-signup">Chưa có tài khoản?</Link>
-                  }
-                  fullWidth
                   required
                 />
                 <InputPassword
                   id="signInPassword"
                   handleChange={handleChange}
-                  fullWidth={true}
+                  fullWidth={false}
                   className={styles.TextField}
                 />
                 <Button
                   className={styles.Submit}
                   type="submit"
                   variant="outlined"
-                  fullWidth
                 >
                   Đăng nhập
                 </Button>
@@ -81,7 +66,7 @@ const Login = () => {
           }}
         </Formik>
       </div>
-    </div>
+    </>
   );
 };
 

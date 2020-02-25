@@ -1,5 +1,9 @@
-import { authGuardWithWrapper } from "../../auth/guard";
-import LectureLogin from "./index";
+import { authGuardWithWrapper } from "../../_core/auth/guard";
+
+// layout
+import LectureLogin from "../../layouts/LectureLogin";
+
+// screens
 import LoginScreen from "./LoginScreen";
 
 const LectureLoginRoutes = [

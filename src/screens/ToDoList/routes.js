@@ -1,5 +1,9 @@
-import { authGuardWithWrapper } from "../../auth/guard";
-import TasksLayout from "./index";
+import { authGuardWithWrapper } from "../../_core/auth/guard";
+
+// layout
+import TasksLayout from "../../layouts/ToDoList";
+
+// screens
 import TasksScreen from "./TasksScreen";
 
 const ToDoListRoutes = [

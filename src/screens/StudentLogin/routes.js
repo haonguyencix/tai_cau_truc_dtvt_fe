@@ -1,9 +1,13 @@
-import { authGuardWithWrapper } from "../../auth/guard";
-import StudentLogin from "./index";
+import { authGuardWithWrapper } from "../../_core/auth/guard";
+
+// layout
+import StudentLogin from "../../layouts/StudentLogin";
+
+// screens
 import VerifyScreen from "./VerifyScreen";
 import SignUpScreen from "./SignUpScreen";
 import IntroScreen from "./IntroScreen";
-import ForgotPassScreen from "./ForgorPassScreen";
+import ForgotPassScreen from "./ForgotPassScreen";
 import ResetPassScreen from "./ResetPassScreen";
 
 const StudentLoginRoutes = [

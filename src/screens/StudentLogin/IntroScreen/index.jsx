@@ -7,8 +7,8 @@ import { Typography, Button } from "@material-ui/core";
 import { Lock } from "@material-ui/icons";
 
 // import logo fethub
-import FetHubLogo from "../../../assets/img/fethub_logo.png";
-import FabProgress from "../../_common/FabProgress";
+import FetHubLogo from "../../../_core/assets/img/fethub_logo.png";
+import FabProgress from "../../../shared/FabProgress";
 
 const IntroScreen = () => {
   return (

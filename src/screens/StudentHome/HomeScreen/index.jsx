@@ -2,12 +2,12 @@ import React from "react";
 import styles from "./styles.module.scss";
 
 // import components
-import Post from "../../_common/Post";
+import Post from "../../../shared/Post";
 
-import AvtDefaut from "../../../assets/img/avt-default-2.png";
-import PostImg1 from "../../../assets/img/post-img-1.png";
-import AvtHao from "../../../assets/img/avt-hao.png";
-import PostImg2 from "../../../assets/img/post-img-2.png";
+import AvtDefaut from "../../../_core/assets/img/avt-default-2.png";
+import PostImg1 from "../../../_core/assets/img/post-img-1.png";
+import AvtHao from "../../../_core/assets/img/avt-hao.png";
+import PostImg2 from "../../../_core/assets/img/post-img-2.png";
 
 const postArr = [
   {
