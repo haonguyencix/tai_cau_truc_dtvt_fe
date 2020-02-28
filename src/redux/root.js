@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import LoadingReducer from "../shared/FabProgress/reducer";
+import LoadingReducer from "../components/FabProgress/reducer";
 import AccountReducer from "./accounts/accountReducer";
 import OtpReducer from "./otp/otpReducer";
 

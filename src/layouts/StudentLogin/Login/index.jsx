@@ -10,10 +10,10 @@ import { useHistory } from "react-router-dom";
 import { TextField, Button, Typography } from "@material-ui/core";
 
 // import components
-import InputPassword from "../../../shared/InputPassword";
+import InputPassword from "components/InputPassword";
 
 // import action
-import { login } from "../../../redux/accounts/accountAction";
+import { login } from "redux/accounts/accountAction";
 
 const Login = () => {
   const dispatch = useDispatch();

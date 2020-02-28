@@ -1,3 +1,6 @@
+@import "styles/variables";
+@import "styles/mixin";
+
 .Container {
   list-style: none;
   padding: 3px;
@@ -16,7 +19,7 @@
     .LectureAvt {
       margin-right: 8px;
       border: 1px solid #c1c1c1;
-      background-color: #0f4c81;
+      background-color: $primary-classic-blue;
       font-size: 15px;
     }
     .Lecture {

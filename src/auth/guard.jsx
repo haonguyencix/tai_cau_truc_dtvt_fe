@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { getLocalStorage } from "../services/common";
+import { getLocalStorage } from "services/common";
 
 const conditions = {
   "student-home": getLocalStorage("studentLogin"), // bảo vệ trang chủ của sinh viên (khi có local là studentLogin mới route được)
@@ -12,7 +12,8 @@ const conditions = {
 
 export const authGuardWithWrapper = ComponentProps => {
   return props => {
-    if (conditions[ComponentProps.authen]) {
+    // if (conditions[ComponentProps.authen]) {
+    if (true) {
       return (
         <ComponentProps.layout>
           <ComponentProps.screen {...props} />

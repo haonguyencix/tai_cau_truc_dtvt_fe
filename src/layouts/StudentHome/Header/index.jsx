@@ -15,8 +15,8 @@ import { Notifications, Assignment } from "@material-ui/icons";
 import AvtDefault from "../../../assets/img/avt-default-2.png";
 
 // import components
-import Search from "../../../shared/Search";
-import AccountSetting from "../../../shared/AccountSetting";
+import Search from "../../../components/Search";
+import AccountSetting from "../../../components/AccountSetting";
 
 const Header = () => {
   return (

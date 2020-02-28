@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // Styles
-import CssBaseline from "@material-ui/core/CssBaseline";
 import "./main.scss";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 // Toastify
 import "react-toastify/dist/ReactToastify.css";
@@ -11,15 +11,15 @@ import { ToastContainer } from "react-toastify";
 
 // Routes
 import { BrowserRouter as Router } from "react-router-dom";
-import ROUTES, { RenderRoutes } from "./screens/routes";
+import ROUTES, { RenderRoutes } from "pages/routes";
 
 // Service Worker
-import * as serviceWorker from "./services/worker";
+import * as serviceWorker from "services/worker";
 
 // Setup Redux
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
-import rootReducer from "./redux/root";
+import rootReducer from "redux/root";
 import thunk from "redux-thunk";
 
 const composeEnhancers =

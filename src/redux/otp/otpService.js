@@ -1,4 +1,4 @@
-import { restConnector } from "../../connector/axios";
+import { restConnector } from "../../services/axios";
 
 class OTPService {
   sendOTP(credentials) {

@@ -3,11 +3,11 @@ import { toast } from "react-toastify";
 
 // import const
 import { FETCH_LOGIN, FETCH_ACCOUNT_ID } from "./accountConst";
-import { FETCH_LOADING } from "../../shared/FabProgress/const";
+import { FETCH_LOADING } from "components/FabProgress/const";
 
 // import services
 import AccountService from "./accountService";
-import { setLocalStorage } from "../../services/common";
+import { setLocalStorage } from "services/common";
 
 // import models
 import { StudentAccount, LectureAccount, NewPassword } from "./account";

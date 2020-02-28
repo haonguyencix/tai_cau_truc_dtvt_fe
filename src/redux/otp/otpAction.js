@@ -8,12 +8,12 @@ import {
   FETCH_OTP_FORGOT_PASSWORD,
   FETCH_TOKEN_RESET_PASSWORD
 } from "./otpConst";
-import { FETCH_ACCOUNT_ID } from "../accounts/accountConst";
-import { FETCH_LOADING } from "../../shared/FabProgress/const";
+import { FETCH_ACCOUNT_ID } from "redux/accounts/accountConst";
+import { FETCH_LOADING } from "components/FabProgress/const";
 
 // import services
 import OTPService from "./otpService";
-import { setLocalStorage } from "../../services/common";
+import { setLocalStorage } from "services/common";
 
 // import models
 import { OTP, Credentials } from "./otp";

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import styles from "./styles.module.scss";
 import { useDispatch } from "react-redux";
-import { getLocalStorage, sendAccessToken } from "../../services/common";
+import { getLocalStorage, sendAccessToken } from "services/common";
 
 // import const
-import { FETCH_LOGIN } from "../../redux/accounts/accountConst";
+import { FETCH_LOGIN } from "redux/accounts/accountConst";
 
 // import components
 import Header from "./Header";

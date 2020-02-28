@@ -1,3 +1,6 @@
+@import "styles/variables";
+@import "styles/mixin";
+
 .ClassItems {
   width: 48%;
   background-color: #fff;
@@ -20,7 +23,7 @@
     }
     .LectureAvt {
       position: absolute;
-      background-color: #0f4c81;
+      background-color: $primary-classic-blue;
       height: 30px;
       width: 30px;
       bottom: -16px;

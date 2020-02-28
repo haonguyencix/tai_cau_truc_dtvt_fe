@@ -36,7 +36,7 @@ const TaskBoard = props => {
 
   return (
     <Board
-      style={{ backgroundColor: "#0F4C81" }}
+      style={{ backgroundColor: "$primary-classic-blue" }}
       data={{ lanes: props.tasks }}
       draggable
       collapsibleLanes

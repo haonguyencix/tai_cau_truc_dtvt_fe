@@ -1,3 +1,6 @@
+@import "styles/variables";
+@import "styles/mixin";
+
 .Container {
   width: 231px;
   position: fixed;
@@ -26,7 +29,7 @@
       height: 24px;
       font-size: 13px;
       margin-right: 8px;
-      background-color: #0f4c81;
+      background-color: $primary-classic-blue;
     }
     &:hover {
       color: #000;
