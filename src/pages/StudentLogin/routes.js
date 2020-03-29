@@ -1,9 +1,6 @@
-import { authGuardWithWrapper } from "auth/guard";
-
-// layout
+import { authGuardWithWrapper } from "routes/guard";
+import { AUTHEN } from "routes/const";
 import StudentLogin from "layouts/StudentLogin";
-
-// screens
 import VerifyScreen from "./VerifyScreen";
 import SignUpScreen from "./SignUpScreen";
 import IntroScreen from "./IntroScreen";
@@ -13,57 +10,52 @@ import ResetPassScreen from "./ResetPassScreen";
 const StudentLoginRoutes = [
   {
     path: "/",
-    key: "student-login",
-    exact: true,
+    key: "STUDENT_LOGIN",
     component: authGuardWithWrapper({
-      authen: "student-login",
+      authen: AUTHEN.STUDENT_LOGIN,
       layout: StudentLogin,
       screen: IntroScreen,
-      redirect: "/home"
+      redirect: "/student-home"
     })
   },
   {
-    path: "/verify",
-    key: "VERIFY",
-    exact: true,
+    path: "/student-verify",
+    key: "STUDENT_VERIFY",
     component: authGuardWithWrapper({
-      authen: "verify",
+      authen: AUTHEN.STUDENT_VERIFY,
       layout: StudentLogin,
       screen: VerifyScreen,
-      redirect: "/home"
+      redirect: "/student-home"
     })
   },
   {
     path: "/student-signup",
     key: "STUDENT_SIGNUP",
-    exact: true,
     component: authGuardWithWrapper({
-      authen: "student-login",
+      authen: AUTHEN.STUDENT_LOGIN,
       layout: StudentLogin,
       screen: SignUpScreen,
-      redirect: "/home"
+      redirect: "/student-home"
     })
   },
   {
     path: "/forgot-password",
     key: "FORGOT_PASSWORD",
-    exact: true,
     component: authGuardWithWrapper({
-      authen: "student-login",
+      authen: AUTHEN.STUDENT_LOGIN,
       layout: StudentLogin,
       screen: ForgotPassScreen,
-      redirect: "/home"
+      redirect: "/student-home"
     })
   },
   {
     path: "/reset-password",
     key: "RESET_PASSWORD",
-    exact: true,
     component: authGuardWithWrapper({
-      authen: "reset-pasword",
+      authen: AUTHEN.RESET_PASSWORD,
       layout: StudentLogin,
       screen: ResetPassScreen,
-      redirect: "/home"
+      redirect: "/student-home"
     })
   }
 ];

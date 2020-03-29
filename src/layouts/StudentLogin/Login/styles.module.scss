@@ -8,17 +8,17 @@
   }
   .Form {
     width: 100%;
-    display: flex;
+    @include flex();
     justify-content: space-between;
     align-items: baseline;
     .Submit {
-      color: #000;
-      border-radius: 20px;
-      background-color: white;
-      border: 2px solid #000;
+      color: $color-default-darkest;
+      @include border-radius(20px);
+      background-color: $color-default-lightest;
+      border: 2px solid $color-default-darkest;
       &:hover {
-        color: #000;
-        background-color: white;
+        color: $color-default-darkest;
+        background-color: $color-default-lightest;
       }
     }
   }

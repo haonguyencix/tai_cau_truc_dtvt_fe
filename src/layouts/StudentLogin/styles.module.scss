@@ -3,13 +3,13 @@
 
 .Container {
   width: 100%;
-  display: flex;
+  @include flex();
   .Left {
     width: 50%;
     background-color: $primary-classic-blue;
-    color: #fff;
+    color: $color-default-lightest;
     height: 100vh;
-    display: flex;
+    @include flex();
     align-items: center;
   }
   .Right {

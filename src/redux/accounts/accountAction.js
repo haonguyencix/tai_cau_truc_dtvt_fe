@@ -1,49 +1,54 @@
-// import libraries
 import { toast } from "react-toastify";
-
-// import const
-import { FETCH_LOGIN, FETCH_ACCOUNT_ID } from "./accountConst";
-import { FETCH_LOADING } from "components/FabProgress/const";
-
-// import services
+import { TOKEN, ACCOUNT_ID } from "services/const";
+import { setLocalStorage, sendAccessToken } from "services/common";
+import { Student, Lecture, NewPassword } from "./account";
+import {
+  SEND_LOGIN_TOKEN,
+  SEND_ACCOUNT_ID,
+  SET_CREDENTIAL
+} from "./accountType";
+import { actCheckLoading } from "components/FabProgress/action";
 import AccountService from "./accountService";
-import { setLocalStorage } from "services/common";
 
-// import models
-import { StudentAccount, LectureAccount, NewPassword } from "./account";
-
-/**
- * type = true => giảng viên
- * type = false => sinh viên
- *  */
+const checkWho = role => {
+  switch (role) {
+    case "lecture":
+      return true;
+    case "student":
+      return false;
+    default:
+      break;
+  }
+};
 
 // async action
-export const signUp = (values, push, type) => {
-  const { id, password, birth, role } = values;
-  let accountModel = type
-    ? new LectureAccount(id, password, role)
-    : new StudentAccount(id, password, birth, role);
+export const signUp = (values, push, role) => {
+  const { id, password, birth } = values;
+
+  const account = checkWho(role)
+    ? new Lecture(id, password, role)
+    : new Student(id, password, role, birth);
+
   return dispatch => {
-    dispatch({
-      type: FETCH_LOADING["REQUEST"]
-    });
-    AccountService.signUp(accountModel, type)
+    dispatch(actCheckLoading("REQUEST"));
+
+    AccountService.signUp(account, role)
       .then(res => {
-        dispatch({
-          type: FETCH_LOADING["SUCCESS"]
-        });
-        dispatch({
-          type: FETCH_ACCOUNT_ID,
-          payload: res.data.id
-        });
-        setLocalStorage(type ? "lectureId" : "studentId", res.data.id);
+        const { id } = res.data;
+
+        dispatch(actCheckLoading("SUCCESS"));
+
+        dispatch(actSendAccountId(id));
+
+        setLocalStorage(ACCOUNT_ID, id);
+
         toast.success("Đăng ký thành công!");
-        push("/verify");
+
+        push(`/${role}-verify`);
       })
       .catch(err => {
-        dispatch({
-          type: FETCH_LOADING["FAILURE"]
-        });
+        dispatch(actCheckLoading("FAILURE"));
+
         if (err.response) {
           toast.error(err.response.data.message);
         }
@@ -51,32 +56,45 @@ export const signUp = (values, push, type) => {
   };
 };
 
-export const login = (values, push, type) => {
+export const login = (values, push, role) => {
   return dispatch => {
-    dispatch({
-      type: FETCH_LOADING["REQUEST"]
-    });
-    AccountService.login(values, type)
+    dispatch(actCheckLoading("REQUEST"));
+
+    AccountService.login(values)
       .then(res => {
-        const accountData = res.data;
-        dispatch({
-          type: FETCH_LOADING["SUCCESS"]
-        });
-        dispatch({
-          type: FETCH_LOGIN,
-          payload: { accountLogin: accountData }
-        });
-        setLocalStorage(type ? "lectureLogin" : "studentLogin", accountData);
-        toast.success(
-          `Chào mừng ${accountData.profile &&
-            accountData.profile.lastName} đến với FEThub!`
-        );
-        push("/home");
+        const { token } = res.data;
+
+        dispatch(actCheckLoading("SUCCESS"));
+
+        dispatch(actSendLoginToken(token));
+
+        setLocalStorage(checkWho(role) ? TOKEN.LECTURE_LOGIN : TOKEN.STUDENT_LOGIN, token);
+
+        sendAccessToken(token);
+
+        push(`/${role}-home`);
       })
       .catch(err => {
-        dispatch({
-          type: FETCH_LOADING["FAILURE"]
-        });
+        dispatch(actCheckLoading("FAILURE"));
+
+        if (err.response) {
+          toast.error(err.response.data.message);
+        }
+      });
+  };
+};
+
+// sau khi login thành công sẽ gửi kèm token qua headers 
+// -> có id, role từ token để lấy định danh
+export const getCredential = () => {
+  return dispatch => {
+    AccountService.getCredential()
+      .then(res => {
+        toast.success(`Chào mừng ${res.data.lastName} đến với FEThub!`);
+
+        dispatch(actSetCredential(res.data));
+      })
+      .catch(err => {
         if (err.response) {
           toast.error(err.response.data.message);
         }
@@ -87,24 +105,40 @@ export const login = (values, push, type) => {
 export const resetPassword = (values, push) => {
   let newPassword = new NewPassword(values.id, values.password);
   return dispatch => {
-    dispatch({
-      type: FETCH_LOADING["REQUEST"]
-    });
+    dispatch(actCheckLoading("REQUEST"));
+
     AccountService.resetPassword(newPassword)
-      .then(res => {
-        dispatch({
-          type: FETCH_LOADING["SUCCESS"]
-        });
+      .then(() => {
+        dispatch(actCheckLoading("SUCCESS"));
+
         toast.success("Bạn đã có thể đăng nhập bằng mật khẩu mới!");
+
+        localStorage.clear();
+
         push("/");
       })
       .catch(err => {
-        dispatch({
-          type: FETCH_LOADING["FAILURE"]
-        });
+        dispatch(actCheckLoading("FAILURE"));
+
         if (err.response) {
           toast.error(err.response.data.message);
         }
       });
   };
 };
+
+// action creator
+export const actSendLoginToken = accountToken => ({
+  type: SEND_LOGIN_TOKEN,
+  payload: accountToken
+});
+
+export const actSendAccountId = accountId => ({
+  type: SEND_ACCOUNT_ID,
+  payload: accountId
+});
+
+export const actSetCredential = credential => ({
+  type: SET_CREDENTIAL,
+  payload: credential
+});

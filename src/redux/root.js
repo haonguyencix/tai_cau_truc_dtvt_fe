@@ -1,12 +1,14 @@
 import { combineReducers } from "redux";
-import LoadingReducer from "../components/FabProgress/reducer";
-import AccountReducer from "./accounts/accountReducer";
-import OtpReducer from "./otp/otpReducer";
+import isLoading from "components/FabProgress/reducer";
+import accountData from "./accounts/accountReducer";
+import otpData from "./otp/otpReducer";
+import postData from "./posts/postReducer";
 
 const rootReducer = combineReducers({
-  isLoading: LoadingReducer,
-  accountData: AccountReducer,
-  otpData: OtpReducer
+  isLoading,
+  accountData,
+  otpData,
+  postData
 });
 
 export default rootReducer;

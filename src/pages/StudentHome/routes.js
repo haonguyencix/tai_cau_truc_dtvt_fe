@@ -1,18 +1,14 @@
-import { authGuardWithWrapper } from "auth/guard";
-
-// layout
+import { authGuardWithWrapper } from "routes/guard";
+import { AUTHEN } from "routes/const";
 import StudentHome from "layouts/StudentHome";
-
-// screens
 import HomeScreen from "./HomeScreen";
 
 const StudentHomeRoutes = [
   {
-    path: "/home",
-    key: "HOME",
-    exact: true,
+    path: "/student-home",
+    key: "STUDENT_HOME",
     component: authGuardWithWrapper({
-      authen: "student-home",
+      authen: AUTHEN.STUDENT_HOME,
       layout: StudentHome,
       screen: HomeScreen,
       redirect: "/"

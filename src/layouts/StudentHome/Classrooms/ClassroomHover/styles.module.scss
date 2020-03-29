@@ -4,37 +4,40 @@
 .Container {
   list-style: none;
   padding: 3px;
-  border-radius: 8px;
-  background-color: #fff;
-  border: 1px solid #c1c1c1;
-  box-shadow: 0 3px 8px rgba(#000, 0.3);
+  background-color: $color-default-lightest;
+  border: 1px solid $color-default-lighter;
   width: 345px;
+  @include box-shadow();
+  @include border-radius(8px);
   .Header {
     position: relative;
-    border-radius: 5px;
-    display: flex;
     align-items: center;
     padding: 10px;
     background-color: #eee;
+    @include flex();
+    @include border-radius(5px);
     .LectureAvt {
       margin-right: 8px;
-      border: 1px solid #c1c1c1;
+      border: 1px solid $color-default-lighter;
       background-color: $primary-classic-blue;
-      font-size: 15px;
+      @include font-size($fs-medium);
+    }
+    h6 {
+      @include font-size($fs-regular);
     }
     .Lecture {
-      color: #606060;
-      font-size: 11px;
+      color: $color-default-darker;
+      @include font-size($fs-min);
     }
   }
   .InfoItem {
     margin-top: 5px;
     .Content {
-      display: flex;
-      align-items: center;
       cursor: pointer;
+      align-items: center;
       padding: 5px 21px;
-      color: #000;
+      color: $color-default-darkest;
+      @include flex();
       .Icon {
         margin-right: 16px;
       }

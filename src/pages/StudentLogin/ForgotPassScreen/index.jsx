@@ -26,7 +26,7 @@ import {
 } from "redux/otp/otpAction";
 
 // import const
-import { FETCH_IS_SEND } from "redux/otp/otpConst";
+import { CHECK_SEND } from "redux/otp/otpType";
 
 // import components
 import Timer from "components/Timer";
@@ -37,7 +37,7 @@ import FetHubLogo from "assets/img/fethub_logo.png";
 
 const ForgotPassScreen = props => {
   const dispatch = useDispatch();
-  const studentId = useSelector(state => state.accountData.studentId);
+  const studentId = useSelector(state => state.accountData.accountId);
   const isLoading = useSelector(state => state.isLoading);
   const otpData = useSelector(state => state.otpData);
 
@@ -157,7 +157,7 @@ const ForgotPassScreen = props => {
                     <Button
                       type="button"
                       className={styles.Submit}
-                      onClick={() => dispatch({ type: FETCH_IS_SEND })}
+                      onClick={() => dispatch({ type: CHECK_SEND })}
                     >
                       Gửi lại mã xác thực
                     </Button>

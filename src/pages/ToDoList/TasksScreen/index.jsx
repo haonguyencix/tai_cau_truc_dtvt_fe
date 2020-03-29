@@ -15,10 +15,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
-import TaskBoard from '../../../layouts/ToDoList/TaskBoard';
-import Spinner from '../../../components/Spinner';
-import TasksService from '../../../redux/tasks/tasksService';
-import CardsService from '../../../redux/cards/cardsService';
+import TaskBoard from 'layouts/ToDoList/TaskBoard';
+import Spinner from 'components/Spinner';
+import TasksService from 'redux/tasks/tasksService';
+import CardsService from 'redux/cards/cardsService';
 
 const drawerWidth = 240;
 

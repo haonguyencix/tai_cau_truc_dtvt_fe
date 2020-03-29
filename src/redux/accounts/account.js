@@ -2,16 +2,16 @@
 import { format } from "date-fns";
 import * as yup from "yup";
 
-export class StudentAccount {
-  constructor(_id, _password, _birth, _role) {
+export class Student {
+  constructor(_id, _password, _role, _birth) {
     this.id = _id;
     this.password = _password;
-    this.birth = format(_birth, "yyyy-MM-dd");
     this.role = _role;
+    this.birth = format(_birth, "yyyy-MM-dd");
   }
 }
 
-export class LectureAccount {
+export class Lecture {
   constructor(_id, _password, _role) {
     this.id = _id;
     this.password = _password;

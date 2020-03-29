@@ -3,15 +3,15 @@
 
 .Container {
   list-style: none;
-  border-radius: 8px;
+  @include border-radius(8px);
   padding: 3px;
   padding-bottom: 10px;
   &::before {
     content: "";
     position: absolute;
     background-color: $color-default-lightest;
-    border-left: 1px solid #c1c1c1;
-    border-top: 1px solid #c1c1c1;
+    border-left: 1px solid $color-default-lighter;
+    border-top: 1px solid $color-default-lighter;
     transform: rotate(45deg);
     top: -6px;
     right: 22px;
@@ -20,8 +20,8 @@
   }
   .Profile {
     position: relative;
-    border-radius: 5px;
-    display: flex;
+    @include border-radius(5px);
+    @include flex();
     align-items: center;
     padding: 10px;
     background-color: $color-default;
@@ -29,15 +29,18 @@
       margin-right: 8px;
       border: 1px solid $color-default-lighter;
     }
+    h6 {
+      @include font-size($fs-regular);
+    }
     .Email {
       color: $color-default-darker;
-      font-size: 11px;
+      @include font-size($fs-min);
     }
   }
   .LinkItem {
     margin-top: 5px;
     .Link {
-      display: flex;
+      @include flex();
       align-items: center;
       cursor: pointer;
       padding: 5px 21px;

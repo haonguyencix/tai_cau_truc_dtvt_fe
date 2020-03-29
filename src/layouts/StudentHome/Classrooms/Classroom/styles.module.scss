@@ -3,33 +3,34 @@
 
 .ClassItems {
   width: 48%;
-  background-color: #fff;
-  border: 1px solid #c1c1c1;
-  margin-bottom: 16px;
   padding: 3px;
-  border-radius: 8px;
   cursor: pointer;
   position: relative;
+  margin-bottom: 16px;
+  background-color: $color-default-lightest;
+  border: 1px solid $color-default-lighter;
+  @include border-radius(8px);
   .Wrapper {
     position: relative;
-    border-radius: 6px;
     height: 56px;
     width: 100%;
-    background-color: #eee;
     padding: 8px 6px;
+    background-color: $color-default;
+    @include border-radius(6px);;
     .ClassName {
       letter-spacing: -0.3px;
       text-transform: uppercase;
+      @include font-size($fs-regular);
     }
     .LectureAvt {
       position: absolute;
-      background-color: $primary-classic-blue;
       height: 30px;
       width: 30px;
       bottom: -16px;
       right: 8px;
-      border: 3px solid #fff;
-      font-size: 15px;
+      border: 3px solid $color-default-lightest;
+      background-color: $primary-classic-blue;
+      @include font-size($fs-semi);
     }
   }
   .LectureName {
@@ -39,7 +40,7 @@
   .Hover {
     display: none;
     position: absolute;
-    z-index: 1000;
+    z-index: 2;
   }
   &:hover .Hover {
     display: block;

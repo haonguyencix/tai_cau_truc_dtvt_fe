@@ -1,37 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.scss";
-
-// import libraries
 import { Formik, Form } from "formik";
 import { useDispatch } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
-
-// import Material UI
+import { useHistory } from "react-router-dom";
 import { TextField, Button } from "@material-ui/core";
-import { PersonAdd } from "@material-ui/icons";
-
-// import components
+import { Lock, PersonAdd } from "@material-ui/icons";
 import InputPassword from "components/InputPassword";
 import FabProgress from "components/FabProgress";
-
-// import action
-import { login } from "redux/accounts/accountAction";
+import { login, signUp } from "redux/accounts/accountAction";
 
 const Login = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const [hadAccount, setHadAccount] = useState(true);
 
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Title}>
-        <h2>Đăng nhập FEThub</h2>
+        <h2>{hadAccount ? "Đăng nhập FEThub" : "Đăng ký tài khoản"}</h2>
         <span>(Giảng viên)</span>
       </div>
       <div className={styles.FormWrapper}>
         <FabProgress
           className={styles.FabProgress}
           slug="/"
-          icon={PersonAdd}
+          icon={hadAccount ? Lock : PersonAdd}
           title="Trở về trang chủ"
         />
         <Formik
@@ -40,8 +33,11 @@ const Login = () => {
             password: ""
           }}
           onSubmit={values => {
-            console.log("TCL: Login -> values", values);
-            dispatch(login(values, history.push, true));
+            dispatch(
+              hadAccount
+                ? login(values, history.push, "lecture")
+                : signUp(values, history.push, "lecture")
+            );
           }}
         >
           {({ handleChange }) => {
@@ -57,7 +53,14 @@ const Login = () => {
                   margin="normal"
                   className={styles.TextField}
                   helperText={
-                    <Link to="/lecture-signup">Chưa có tài khoản?</Link>
+                    <span
+                      style={{ cursor: "pointer" }}
+                      onClick={() => setHadAccount(!hadAccount)}
+                    >
+                      {hadAccount
+                        ? "Chưa có tài khoản?"
+                        : "<- Trở về đăng nhập"}
+                    </span>
                   }
                   fullWidth
                   required
@@ -74,7 +77,7 @@ const Login = () => {
                   variant="outlined"
                   fullWidth
                 >
-                  Đăng nhập
+                  {hadAccount ? "Đăng nhập" : "Đăng ký"}
                 </Button>
               </Form>
             );

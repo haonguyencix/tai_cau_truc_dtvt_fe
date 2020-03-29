@@ -3,9 +3,9 @@
 
 .Container {
   position: relative;
-  border: 1px solid #c1c1c1;
-  background-color: #fff;
-  border-radius: 8px;
+  border: 1px solid $color-default-lighter;
+  background-color: $color-default-lightest;
+  @include border-radius(8px);
   &:hover {
     background-color: #f9f9f9;
   }
@@ -14,13 +14,13 @@
     color: #c1c1c1;
     width: 40px;
     height: 100%;
-    display: flex;
+    @include flex();
     align-items: center;
     justify-content: center;
     pointer-events: none;
   }
   .ColorChanged {
-    color: #000;
+    color: $color-default-darkest;
   }
   .InputBase {
     padding-left: 40px;
@@ -30,5 +30,5 @@
 }
 
 .BorderColorChanged {
-  border: 1px solid #000;
+  border: 1px solid $color-default-darkest;
 }

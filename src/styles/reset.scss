@@ -5,21 +5,21 @@
 }
 
 html, body {
-  font-size: 16px;
   scroll-behavior: smooth;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-size: $fs-default;
   @include lg {
-    font-size: 15px;
+    font-size: $fs-semi;
   }
   @include md {
-    font-size: 14px;
+    font-size: $fs-regular;
   }
   @include sm {
-    font-size: 13px;
+    font-size: $fs-small;
   }
   @include xs {
-    font-size: 12px;
+    font-size: $fs-min;
   }
 }
 

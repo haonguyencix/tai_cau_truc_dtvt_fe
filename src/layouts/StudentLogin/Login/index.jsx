@@ -1,18 +1,10 @@
 import React from "react";
 import styles from "./styles.module.scss";
-
-// import libraries
 import { Formik, Form } from "formik";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-
-// import Material UI
 import { TextField, Button, Typography } from "@material-ui/core";
-
-// import components
 import InputPassword from "components/InputPassword";
-
-// import action
 import { login } from "redux/accounts/accountAction";
 
 const Login = () => {
@@ -31,7 +23,7 @@ const Login = () => {
             password: ""
           }}
           onSubmit={values => {
-            dispatch(login(values, history.push, false));
+            dispatch(login(values, history.push, "student"));
           }}
         >
           {({ handleChange }) => {

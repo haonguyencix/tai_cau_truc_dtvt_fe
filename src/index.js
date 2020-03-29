@@ -11,7 +11,7 @@ import { ToastContainer } from "react-toastify";
 
 // Routes
 import { BrowserRouter as Router } from "react-router-dom";
-import ROUTES, { RenderRoutes } from "pages/routes";
+import ROUTES, { RenderRoutes } from "routes";
 
 // Service Worker
 import * as serviceWorker from "services/worker";

@@ -1,10 +1,10 @@
 // import const
 import {
-  FETCH_OTP,
-  FETCH_IS_SEND,
-  FETCH_OTP_FORGOT_PASSWORD,
-  FETCH_TOKEN_RESET_PASSWORD
-} from "./otpConst";
+  SEND_OTP,
+  CHECK_SEND,
+  SEND_OTP_FORGOT_PASSWORD,
+  SEND_RESET_PASSWORD_TOKEN
+} from "./otpType";
 
 let initialState = {
   expirationTime: 0,
@@ -15,7 +15,7 @@ let initialState = {
 
 const OtpReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_OTP: {
+    case SEND_OTP: {
       return {
         ...state,
         expirationTime: action.payload,
@@ -23,7 +23,7 @@ const OtpReducer = (state = initialState, action) => {
       };
     }
 
-    case FETCH_OTP_FORGOT_PASSWORD: {
+    case SEND_OTP_FORGOT_PASSWORD: {
       return {
         ...state,
         expirationTime: action.payload.expirationTime,
@@ -32,14 +32,14 @@ const OtpReducer = (state = initialState, action) => {
       };
     }
 
-    case FETCH_IS_SEND: {
+    case CHECK_SEND: {
       return {
         ...state,
         isSend: false
       };
     }
 
-    case FETCH_TOKEN_RESET_PASSWORD: {
+    case SEND_RESET_PASSWORD_TOKEN: {
       return {
         ...state,
         token: action.payload

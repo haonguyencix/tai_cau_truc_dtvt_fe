@@ -2,7 +2,7 @@
 @import "styles/mixin";
 
 .ListWrapper {
-  display: flex;
+  @include flex();
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;

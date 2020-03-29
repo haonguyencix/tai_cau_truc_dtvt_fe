@@ -1,2 +1,0 @@
-export const FETCH_LOGIN = "FETCH_LOGIN";
-export const FETCH_ACCOUNT_ID = "FETCH_ACCOUNT_ID";

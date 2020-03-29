@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styles from "./styles.module.scss";
 import { toast } from "react-toastify";
 
 const Timer = props => {
@@ -7,7 +6,7 @@ const Timer = props => {
 
   const [timer, setTimer] = useState({
     min: "0" + Math.round(expirationTime / 60 - 0.5),
-    sec: "0" + expirationTime % 60
+    sec: "0" + (expirationTime % 60)
   });
 
   useEffect(() => {
@@ -17,7 +16,7 @@ const Timer = props => {
 
       setTimer({
         min: min < 10 ? "0" + min : min,
-        sec: sec < 10 ? "0" + sec : sec,
+        sec: sec < 10 ? "0" + sec : sec
       });
 
       --expirationTime;
@@ -26,13 +25,12 @@ const Timer = props => {
         clearInterval(interval);
         toast.error("Mã xác thực đã hết hạn!");
       }
-
     }, 1000);
     return () => clearInterval(interval);
   }, [expirationTime]);
 
   return (
-    <span className={styles.Container}>
+    <span className={props.className}>
       {timer.min}:{timer.sec}
     </span>
   );

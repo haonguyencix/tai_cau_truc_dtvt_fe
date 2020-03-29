@@ -1,15 +1,8 @@
 import React, { memo } from "react";
 import styles from "./styles.module.scss";
-
-// import material UI
 import { Avatar } from "@material-ui/core";
-
-import LectureAvt from "../../../../assets/img/avt-default-2.png";
-
-// import services
-import { stringShortcut, getFirstLetter } from "../../../../services/common";
-
-// import Material UI
+import LectureAvt from "assets/img/avt-default-2.png";
+import { stringShortcut, getFirstLetter } from "services/common";
 import { WatchLater, Room, VpnKey, GroupWork } from "@material-ui/icons";
 
 const ClassroomHover = props => {

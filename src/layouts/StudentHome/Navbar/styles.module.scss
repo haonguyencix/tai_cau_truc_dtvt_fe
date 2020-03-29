@@ -5,62 +5,62 @@
   width: 231px;
   position: fixed;
   list-style: none;
-  background-color: #fff;
-  border: 1px solid #c1c1c1;
-  border-radius: 8px;
-  z-index: 800;
+  background-color: $color-default-lightest;
+  border: 1px solid $color-default-lighter;
+  @include border-radius(8px);
+  z-index: 3;
   padding: 10px 0;
   .Subheader {
     padding-left: 25px;
-    color: #606060;
+    color: $color-default-darker;
   }
   .NavLink {
-    display: flex;
+    @include flex();
     align-items: center;
     cursor: pointer;
     padding: 10px 25px;
-    color: #000;
+    color: $color-default-darkest;
     .Icon {
       margin-right: 8px;
-      color: #6b7989;
+      color: $dark-grayish-blue;
     }
     .Avt {
       width: 24px;
       height: 24px;
-      font-size: 13px;
       margin-right: 8px;
       background-color: $primary-classic-blue;
+      @include font-size($fs-regular);
     }
     &:hover {
-      color: #000;
+      color: $color-default-darkest;
     }
     &:hover .Icon {
-      color: #000;
+      color: $color-default-darkest;
     }
   }
   .NavLinkActive {
     position: relative;
-    font-weight: bold;
-    color: #000;
-    background-color: #eee;
+    font-weight: $fw-bold;
+    color: $color-default-darkest;
+    background-color: $color-default;
     .Icon {
-      color: #000;
+      color: $color-default-darkest;
     }
     &:hover {
-      color: #000;
+      color: $color-default-darkest;
     }
     &:hover .Icon {
-      color: #000;
+      color: $color-default-darkest;
     }
     &::before {
       content: "";
       position: absolute;
-      border-radius: 8px;
       top: 0;
       left: 0;
       height: 100%;
       width: 4px;
-      background-color: #000;
+      background-color: $color-default-darkest;
+      @include border-radius(8px);
     }
   }
 }

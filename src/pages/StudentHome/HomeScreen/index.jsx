@@ -44,7 +44,7 @@ const HomeScreen = () => {
   const renderPost = postArr.map((item, index) => (
     <Post key={index} item={item} />
   ));
-  return <div className={styles.Container}>{renderPost}</div>;
+  return <div className={styles.Container}>Hello</div>;
 };
 
 export default HomeScreen;

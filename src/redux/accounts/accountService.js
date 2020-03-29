@@ -1,19 +1,26 @@
 import { restConnector } from "services/axios";
 
 class AccountService {
-  signUp(account, type) {
+  signUp(account, role) {
     return restConnector({
-      url: `accounts/${type ? "lecture" : "student"}`,
+      url: `accounts/${role}`,
       method: "POST",
       data: account
     });
   }
 
-  login(account, type) {
+  login(account) {
     return restConnector({
-      url: `accounts/${type ? "lecture" : "student"}/login`,
+      url: 'accounts/login',
       method: "POST",
       data: account
+    });
+  }
+
+  getCredential() {
+    return restConnector({
+      url: 'credential',
+      method: "GET"
     });
   }
 

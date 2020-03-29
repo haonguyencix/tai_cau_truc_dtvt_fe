@@ -1,18 +1,14 @@
-import { authGuardWithWrapper } from "auth/guard";
-
-// layout
+import { authGuardWithWrapper } from "routes/guard";
+import { AUTHEN } from "routes/const";
 import TasksLayout from "layouts/ToDoList";
-
-// screens
 import TasksScreen from "./TasksScreen";
 
 const ToDoListRoutes = [
   {
     path: "/tasks",
     key: "TASKS",
-    exact: true,
     component: authGuardWithWrapper({
-      authen: "home",
+      authen: AUTHEN.STUDENT_HOME,
       layout: TasksLayout,
       screen: TasksScreen,
       redirect: "/home"

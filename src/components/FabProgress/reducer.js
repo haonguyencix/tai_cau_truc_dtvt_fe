@@ -1,18 +1,18 @@
-import { FETCH_LOADING } from "./const";
+import { CHECK_LOADING } from "./const";
 
 let initialState = false;
 
 const LoadingReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_LOADING["REQUEST"]: {
+    case CHECK_LOADING["REQUEST"]: {
       return true;
     }
 
-    case FETCH_LOADING["SUCCESS"]: {
+    case CHECK_LOADING["SUCCESS"]: {
       return false;
     }
 
-    case FETCH_LOADING["FAILURE"]: {
+    case CHECK_LOADING["FAILURE"]: {
       return false;
     }
 

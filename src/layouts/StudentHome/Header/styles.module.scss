@@ -6,23 +6,23 @@
   top: 0;
   right: 0;
   width: 100%;
-  z-index: 1000;
-  background-color: #fff;
-  border-bottom: 1px solid #c1c1c1;
+  z-index: 3;
+  background-color: $color-default-lightest;
+  border-bottom: 1px solid $color-default-lighter;
   .Rows {
     height: 64px;
-    display: flex;
+    @include flex();
     align-items: center;
     .Left {
-      display: flex;
+      @include flex();
       align-items: center;
       padding-left: 25px;
       width: 19%;
       .MenuIcon {
-        color: #000;
+        color: $color-default-darkest;
       }
       .Logo {
-        display: flex;
+        @include flex();
         align-items: center;
         .LogoImg {
           width: 30px;
@@ -30,9 +30,9 @@
         .LogoName {
           margin: 3px 0 0 6px;
           letter-spacing: -0.6px;
-          font-weight: bold;
-          font-size: 22px;
-          color: #000;
+          font-weight: $fw-bold;
+          color: $color-default-darkest;
+          @include font-size($fs-big);
         }
       }
     }
@@ -41,14 +41,14 @@
       padding: 0 32px;
     }
     .Right {
-      display: flex;
+      @include flex();
       align-items: center;
       justify-content: flex-end;
       width: 31%;
       .IconButton {
         margin: 0 4px;
         .Icon {
-          color: #000;
+          color: $color-default-darkest;
         }
       }
       .Avatar {
@@ -59,7 +59,7 @@
         }
         .AvtImg {
           cursor: pointer;
-          border: 1px solid #c1c1c1;
+          border: 1px solid $color-default-lighter;
         }
         .AccountSetting {
           width: 256px;
@@ -67,11 +67,11 @@
           display: none;
           margin-top: 6px;
           right: 0;
-          border-radius: 8px;
-          background-color: #fff;
-          border: 1px solid #c1c1c1;
-          box-shadow: 0 3px 8px rgba(#000, 0.3);
-          z-index: 800;
+          z-index: 3;
+          background-color: $color-default-lightest;
+          border: 1px solid $color-default-lighter;
+          @include border-radius(8px);
+          @include box-shadow();
         }
       }
     }

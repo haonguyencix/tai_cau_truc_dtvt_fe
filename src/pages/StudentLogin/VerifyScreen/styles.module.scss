@@ -2,10 +2,7 @@
 @import "styles/mixin";
 
 .FabProgress {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  @include center-inside-element();
 }
 .Container {
   margin-top: 58px;
@@ -14,21 +11,21 @@
   }
   .Title {
     margin-top: 20px;
-    font-weight: 500;
+    font-weight: $fw-medium;
   }
   .Text {
     margin: 20px 0;
   }
   .Submit {
-    color: white;
     padding: 6px 12px;
-    background-color: #000;
     margin-top: 20px;
-    border-radius: 20px;
-    border: 2px solid #000;
+    color: $color-default-lightest;
+    background-color: $color-default-darkest;
+    border: 2px solid $color-default-darkest;
+    @include border-radius(20px);
     &:hover {
-      color: white;
-      background-color: #000;
+      color: $color-default-lightest;
+      background-color: $color-default-darkest;
     }
   }
   .FormControl {

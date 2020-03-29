@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
+import clsx from "clsx";
 
 // import Material UI
 import { InputBase } from "@material-ui/core";
@@ -18,16 +19,12 @@ const Search = () => {
 
   return (
     <div
-      className={[
-        styles.Container,
-        `${isChangeColor && styles.BorderColorChanged}`
-      ].join(" ")}
+      className={clsx(styles.Container, {
+        [styles.BorderColorChanged]: isChangeColor
+      })}
     >
       <div
-        className={[
-          styles.Icon,
-          `${isChangeColor && styles.ColorChanged}`
-        ].join(" ")}
+        className={clsx(styles.Icon, { [styles.ColorChanged]: isChangeColor })}
       >
         <SearchIcon />
       </div>

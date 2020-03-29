@@ -1,30 +1,29 @@
-// import const
-import { FETCH_LOGIN, FETCH_ACCOUNT_ID } from "./accountConst";
-
-// import services
+import {
+  SEND_LOGIN_TOKEN,
+  SEND_ACCOUNT_ID,
+  SET_CREDENTIAL
+} from "./accountType";
+import { ACCOUNT_ID } from "services/const";
 import { getLocalStorage } from "services/common";
 
 let initialState = {
+  credential: null,
   accountLogin: null,
-  accountId: getLocalStorage("studentId")
-    ? getLocalStorage("studentId")
-    : getLocalStorage("lectureId")
+  accountId: getLocalStorage(ACCOUNT_ID) ? getLocalStorage(ACCOUNT_ID) : null
 };
 
-const AccountReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case FETCH_LOGIN: {
-      return {
-        ...state,
-        accountLogin: action.payload.accountLogin
-      };
+const AccountReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case SEND_LOGIN_TOKEN: {
+      return { ...state, accountLogin: payload };
     }
 
-    case FETCH_ACCOUNT_ID: {
-      return {
-        ...state,
-        accountId: action.payload
-      };
+    case SET_CREDENTIAL: {
+      return { ...state, credential: payload };
+    }
+
+    case SEND_ACCOUNT_ID: {
+      return { ...state, accountId: payload };
     }
 
     default:

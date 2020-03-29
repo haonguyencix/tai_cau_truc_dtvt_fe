@@ -2,30 +2,24 @@ import React, { useEffect } from "react";
 import styles from "./styles.module.scss";
 import { useDispatch } from "react-redux";
 import { getLocalStorage, sendAccessToken } from "services/common";
-
-// import const
-import { FETCH_LOGIN } from "redux/accounts/accountConst";
-
-// import components
+import { TOKEN } from "services/const";
+import { Container } from "@material-ui/core";
 import Header from "./Header";
 import Navbar from "./Navbar";
 import Classrooms from "./Classrooms";
-
-// import Material UI
-import { Container } from "@material-ui/core";
+import { actSendLoginToken } from "redux/accounts/accountAction";
+import { getCredential } from "redux/accounts/accountAction";
 
 const StudentHome = props => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const studentSignIn = getLocalStorage("studentLogin");
+    const studentLoginToken = getLocalStorage(TOKEN.STUDENT_LOGIN);
 
-    if (studentSignIn) {
-      dispatch({
-        type: FETCH_LOGIN,
-        payload: { studentSignIn }
-      });
-      sendAccessToken(studentSignIn.token);
+    if (studentLoginToken) {
+      dispatch(actSendLoginToken(studentLoginToken));
+      sendAccessToken(studentLoginToken);
+      dispatch(getCredential());
     }
   }, [dispatch]);
 

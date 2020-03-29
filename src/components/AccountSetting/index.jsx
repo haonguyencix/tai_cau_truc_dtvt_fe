@@ -1,38 +1,22 @@
 import React from "react";
 import styles from "./styles.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-
-import AvtDefaut from "assets/img/avt-default-2.png";
-
-// import libraries
-import { Link } from "react-router-dom";
-
-// import material
+import { Link, useHistory } from "react-router-dom";
 import { Avatar } from "@material-ui/core";
 import { ExitToApp, PersonOutline } from "@material-ui/icons";
-
-// import const
-import { FETCH_LOGIN } from "redux/accounts/accountConst";
-
-// import services
+import { actSendLoginToken, actSetCredential } from "redux/accounts/accountAction";
 import { stringShortcut } from "services/common";
+import AvtDefaut from "assets/img/avt-default-2.png";
 
 const AccountSetting = props => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const profile = useSelector(
-    state =>
-      state.accountData.studentSignIn && state.accountData.studentSignIn.profile
-  );
+  const credential = useSelector(state => state.accountData.credential);
 
   const signOut = () => {
-    // phát triển xong loader của homepage sẽ phát triển tiếp
-    dispatch({
-      type: FETCH_LOGIN,
-      payload: { studentSignIn: null }
-    });
-    localStorage.removeItem("studentLogin");
+    dispatch(actSendLoginToken(null));
+    dispatch(actSetCredential(null));
+    localStorage.clear();
     history.push("/");
   };
 
@@ -45,9 +29,9 @@ const AccountSetting = props => {
           alt="Avatar mặc định"
         />
         <div>
-          <h6>{profile && profile.firstName + " " + profile.lastName}</h6>
+          <h6>{credential && credential.firstName + " " + credential.lastName}</h6>
           <span className={styles.Email}>
-            {profile && stringShortcut(profile.email, 29)}
+            {credential && stringShortcut(credential.email, 29)}
           </span>
         </div>
       </li>

@@ -13,40 +13,40 @@
   .Title {
     margin-top: 32px;
     margin-bottom: 8px;
-    font-weight: 700;
-    font-size: 2rem;
+    font-weight: $fw-bold;
+    @include font-size($fs-max);
   }
   .SubTitle {
     margin: 32px 0 40px;
-    font-weight: 500;
-    font-size: 1.25rem;
+    font-weight: $fw-medium;
+    @include font-size($fs-medium);
   }
   .Buttons {
     margin-top: 20px;
-    display: flex;
+    @include flex();
     justify-content: space-between;
     .BtnSignUp {
       width: 49%;
       > button {
-        color: #fff;
-        border-radius: 20px;
-        background-color: #000;
-        border: 2px solid #000;
+        color: $color-default-lightest;
+        @include border-radius(20px);
+        background-color: $color-default-darkest;
+        border: 2px solid $color-default-darkest;
         &:hover {
-          color: #fff;
-          background-color: #000;
+          color: $color-default-lightest;
+          background-color: $color-default-darkest;
         }
       }
     }
     .BtnSignIn {
-      color: #000;
-      border-radius: 20px;
-      background-color: #fff;
-      border: 2px solid #000;
+      color: $color-default-darkest;
+      @include border-radius(20px);
+      background-color: $color-default-lightest;
+      border: 2px solid $color-default-darkest;
       width: 49%;
       &:hover {
-        color: #000;
-        background-color: #fff;
+        color: $color-default-darkest;
+        background-color: $color-default-lightest;
       }
     }
   }

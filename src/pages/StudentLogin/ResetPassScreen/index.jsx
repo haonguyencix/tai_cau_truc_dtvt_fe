@@ -1,51 +1,40 @@
 import React, { useEffect } from "react";
 import styles from "./styles.module.scss";
-
-// import libraries
 import { Formik, Form } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
-// import Material UI
 import { Button, Typography } from "@material-ui/core";
 import { Autorenew } from "@material-ui/icons";
-
-// import component
 import InputPassword from "components/InputPassword";
 import FabProgress from "components/FabProgress";
-
-// import logo fethub
 import FetHubLogo from "assets/img/fethub_logo.png";
-
-// import action
 import { resetPassword } from "redux/accounts/accountAction";
-
-// import service
+import { TOKEN } from "services/const";
 import { sendAccessToken, getLocalStorage } from "services/common";
-
-// import const
-import { FETCH_TOKEN_RESET_PASSWORD } from "redux/otp/otpConst";
+import { actSendResetPasswordToken } from "redux/otp/otpAction";
 
 const ResetPassScreen = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const studentId = useSelector(state => state.accountData.studentId);
+  const studentId = useSelector(state => state.accountData.accountId);
   const isLoading = useSelector(state => state.isLoading);
 
   useEffect(() => {
-    const token = getLocalStorage("token");
+    const token = getLocalStorage(TOKEN.RESET_PASSWORD);
     if (token) {
-      dispatch({
-        type: FETCH_TOKEN_RESET_PASSWORD,
-        payload: token
-      });
+      dispatch(actSendResetPasswordToken(token));
       sendAccessToken(token);
     }
   }, [dispatch]);
 
   return (
     <React.Fragment>
-      <FabProgress slug="/" icon={Autorenew} title="Trở về trang chủ" />
+      <FabProgress
+        className={styles.FabProgress}
+        slug="/"
+        icon={Autorenew}
+        title="Trở về trang chủ"
+      />
       <div className={styles.Container}>
         <img className={styles.Logo} src={FetHubLogo} alt="FEThub Logo" />
         <Typography className={styles.Title} variant="h5" component="h5">

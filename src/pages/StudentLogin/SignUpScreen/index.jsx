@@ -24,7 +24,7 @@ import FabProgress from "components/FabProgress";
 
 const SignUpScreen = props => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(state => state.accountData.isLoading);
+  const isLoading = useSelector(state => state.isLoading);
 
   return (
     <React.Fragment>
@@ -45,13 +45,11 @@ const SignUpScreen = props => {
           initialValues={{
             id: "",
             password: "",
-            email: "",
             birth: new Date(),
-            role: "student"
           }}
           validationSchema={AccountSchema}
           onSubmit={values => {
-            dispatch(signUp(values, props.history.push));
+            dispatch(signUp(values, props.history.push, "student"));
           }}
         >
           {({

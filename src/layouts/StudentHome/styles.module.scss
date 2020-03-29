@@ -2,8 +2,8 @@
 @import "styles/mixin";
 
 .Wrapper {
-  display: flex;
   margin-top: calc(64px + 25px);
+  @include flex();
   .Navbar {
     width: 19%;
   }

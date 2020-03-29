@@ -158,7 +158,7 @@
 /// @param {Color} $color [rgba(0,0,0,.4)] - Color
 /// @param {Boolean} $inset - Inset
 
-@mixin box-shadow($x: 2px, $y: 2px, $blur: 8px, $color: rgba(0, 0, 0, 0.7), $inset: "") {
+@mixin box-shadow($x: 0, $y: 3px, $blur: 8px, $color: rgba(0, 0, 0, 0.3), $inset: "") {
   @if ($inset != "") {
     @include css3-prefix("box-shadow", $inset $x $y $blur $color);
   } @else {

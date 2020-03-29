@@ -22,8 +22,8 @@ import { MailOutline, Send } from "@material-ui/icons";
 // import action
 import { sendOTP, verifyOTP } from "redux/otp/otpAction";
 
-// import const
-import { FETCH_IS_SEND } from "redux/otp/otpConst";
+// import action
+import { actCheckSendOtp } from "redux/otp/otpAction";
 
 // import components
 import Timer from "components/Timer";
@@ -34,7 +34,7 @@ import FabProgress from "components/FabProgress";
 
 const VerifyScreen = props => {
   const dispatch = useDispatch();
-  const studentId = useSelector(state => state.accountData.studentId);
+  const studentId = useSelector(state => state.accountData.accountId);
   const isLoading = useSelector(state => state.isLoading);
   const otpData = useSelector(state => state.otpData);
 
@@ -145,7 +145,7 @@ const VerifyScreen = props => {
                   <Button
                     type="button"
                     className={styles.Submit}
-                    onClick={() => dispatch({ type: FETCH_IS_SEND })}
+                    onClick={() => dispatch(actCheckSendOtp())}
                   >
                     Gửi lại mã xác thực
                   </Button>
